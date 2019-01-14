@@ -1,0 +1,24 @@
+management:
+  metrics:
+
+  endpoints:
+    web:
+      exposure.include: '*'
+  endpoint:
+    health:
+      show-details: ALWAYS
+
+spring:
+  application:
+    name: caching-demo
+
+  boot.admin.client.url: http://localhost:7777
+
+  cache:
+    caffeine:
+      spec: maximumSize=100,expireAfterAccess=600s
+
+logging:
+  level:
+    org.springframework.cache: TRACE
+    org.springframework.cloud.endpoint: TRACE
